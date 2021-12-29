@@ -16,7 +16,6 @@ const remaining = () => {
     };
   }
 
-  timeLeft = false;
   return timeLeft;
 };
 
@@ -34,10 +33,12 @@ function Countdown() {
     <>
       {timeLeft ? (
     <div className="All">
+      <h1>TAHUN BARU TINGGAL</h1>
         <div
           className="flex-container"
           style={{
             display: "flex",
+            margin: "auto",
           }}
         >
           <div className="box days">
