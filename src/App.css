@@ -15,6 +15,16 @@ html, body {
   flex-direction: column;
 }
 
+.All > h1 {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .All > h1 {
+    font-size: 1.5em;
+  }
+} 
+
 .box {
   text-align: center;
   margin: 0 1em 0 1em;
