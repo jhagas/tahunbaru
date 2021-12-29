@@ -64,7 +64,7 @@ function Countdown() {
     </div>
       ) : (
         <div className="bg">
-          <h1>UBAH SEKAREPMU RUD..</h1>
+          <h1>TAHUN BARU</h1>
         </div>
       )}
     </>
