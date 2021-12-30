@@ -1,9 +1,10 @@
 import "./App.css";
 import React from "react";
+import Popup from "reactjs-popup";
 
+const tahunbaru = "Jan 01 2022";
 const remaining = () => {
-  const tahunbaru = "Jan 01 2022";
-  let difference = new Date(tahunbaru) - new Date();
+  const difference = new Date(tahunbaru) - new Date();
 
   let timeLeft = false;
 
@@ -20,7 +21,7 @@ const remaining = () => {
 };
 
 function Countdown() {
-  const [timeLeft, setTimeLeft] = React.useState(remaining());
+  const [timeLeft, setTimeLeft] = React.useState(true);
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,11 +30,14 @@ function Countdown() {
     return () => clearTimeout(timer);
   });
 
-  return (
-    <>
-      {timeLeft ? (
-    <div className="All">
-      <h1>TAHUN BARU TINGGAL</h1>
+  if (
+    timeLeft.days == 0 &&
+    timeLeft.hours == 0 &&
+    timeLeft.minutes == 0 &&
+    timeLeft.seconds <= 10
+  ) {
+    return (
+      <div className="All">
         <div
           className="flex-container"
           style={{
@@ -41,27 +45,51 @@ function Countdown() {
             margin: "auto",
           }}
         >
-          <div className="box days">
-            <h1>{timeLeft.days}</h1>
-            <h3>hari</h3>
-          </div>
-          <span>:</span>
-          <div className="box hours">
-            <h1>{timeLeft.hours}</h1>
-            <h3>jam</h3>
-          </div>
-          <span>:</span>
-          <div className="box minutes">
-            <h1>{timeLeft.minutes}</h1>
-            <h3>menit</h3>
-          </div>
-          <span>:</span>
-          <div className="box seconds">
-            <h1>{timeLeft.seconds}</h1>
-            <h3>detik</h3>
+          <h1
+            style={{
+              fontSize: "5em",
+            }}
+          >
+            {timeLeft.seconds}
+          </h1>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {timeLeft ? (
+        <div className="All">
+          <h1>TAHUN BARU TINGGAL</h1>
+          <div
+            className="flex-container"
+            style={{
+              display: "flex",
+              margin: "auto",
+            }}
+          >
+            <div className="box days">
+              <h1>{timeLeft.days}</h1>
+              <h3>hari</h3>
+            </div>
+            <span>:</span>
+            <div className="box hours">
+              <h1>{timeLeft.hours}</h1>
+              <h3>jam</h3>
+            </div>
+            <span>:</span>
+            <div className="box minutes">
+              <h1>{timeLeft.minutes}</h1>
+              <h3>menit</h3>
+            </div>
+            <span>:</span>
+            <div className="box seconds">
+              <h1>{timeLeft.seconds}</h1>
+              <h3>detik</h3>
+            </div>
           </div>
         </div>
-    </div>
       ) : (
         <div className="bg">
           <h1>TAHUN BARU</h1>
@@ -71,8 +99,93 @@ function Countdown() {
   );
 }
 
+function Wit() {
+  const [open, setOpen] = React.useState(false);
+  const [opened, setOpened] = React.useState(false);
+  const closeModal = () => setOpen(false);
+
+  const WIT =
+    new Date(tahunbaru + "UTC+9").getTime() ==
+    new Date(Math.floor(+new Date() / 600000) * 600000).getTime();
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      if (WIT == true && opened == false) {
+        setOpen(true);
+        setOpened(true);
+      }
+    }, 1000);
+    return () => clearTimeout(timer);
+  });
+  return (
+    <div>
+      <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+        <div className="modal">
+          <h1 className="header">MEMASUKI TAHUN BARU 2022 DI WILAYAH WIT</h1>
+          <img
+            width="100%"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Timezones2008_UTC%2B9_gray.png/1200px-Timezones2008_UTC%2B9_gray.png"
+            alt="Wilayah Waktu Indonesia Timur dalam peta"
+          />
+          <p className="content">
+            dan juga untuk Tokyo, Jepang 🇯🇵, serta seluruh wilayah UTC+9️
+          </p>
+          <button type="button" className="okmodal" onClick={closeModal}>
+            OK
+          </button>
+        </div>
+      </Popup>
+    </div>
+  );
+}
+
+function Wita() {
+  const [open, setOpen] = React.useState(false);
+  const [opened, setOpened] = React.useState(false);
+  const closeModal = () => setOpen(false);
+
+  const WIT =
+    new Date(tahunbaru + "UTC+8").getTime() ==
+    new Date(Math.floor(+new Date() / 600000) * 600000).getTime();
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      if (WIT == true && opened == false) {
+        setOpen(true);
+        setOpened(true);
+      }
+    }, 1000);
+    return () => clearTimeout(timer);
+  });
+  return (
+    <div>
+      <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+        <div className="modal">
+          <h1 className="header">MEMASUKI TAHUN BARU 2022 DI WILAYAH WITA</h1>
+          <img
+            width="100%"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Timezones2008_UTC%2B8_gray.png/1200px-Timezones2008_UTC%2B8_gray.png"
+            alt="Wilayah Waktu Indonesia Tengah dalam peta"
+          />
+          <p className="content">
+            dan juga untuk China 🇨🇳️, Malaysia 🇲🇾️, Singapura 🇸🇬️, serta seluruh
+            wilayah UTC+8
+          </p>
+          <button type="button" className="okmodal" onClick={closeModal}>
+            OK
+          </button>
+        </div>
+      </Popup>
+    </div>
+  );
+}
+
 function App() {
-  return <Countdown />;
+  return (
+    <>
+      <Countdown />
+      <Wit />
+      <Wita />
+    </>
+  );
 }
 
 export default App;

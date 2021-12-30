@@ -51,6 +51,30 @@ html, body {
   background-image : url("https://unsplash.com/photos/cP_CZA8KCqc/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQwNzk4MTA4&force=true&w=1920");
 }
 
+.modal {
+  font-size: 12px;
+  background-color: whitesmoke;
+  width: 450px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 3px #00000030;
+}
+.modal > .header {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+  text-align: center;
+}
+.modal > .okmodal {
+  display: block;
+  margin: 0 auto;
+}
+
 @keyframes blink {
   0% { opacity: 1 }
   20% { opacity: 1 }

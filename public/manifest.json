@@ -1,6 +1,7 @@
 {
   "short_name": "Tahun Baru Counter",
   "name": "Countdown New year 2022",
+  "description": "Countdown Tahun Baru 2022",
   "icons": [
     {
       "src": "favicon.ico",
