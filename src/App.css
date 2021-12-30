@@ -82,15 +82,15 @@ html, body {
 #tlkcont {
   position: absolute;
   width: 350px;
-  height: 550px;
+  height: 450px;
   right: 10px;
-  bottom: 85px;
+  bottom: 110px;
 }
 
 .fab {
   position: absolute;
   right: 25px;
-  bottom: 25px;
+  bottom: 55px;
 }
 
 .fab-text {
