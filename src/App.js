@@ -1,6 +1,8 @@
 import "./App.css";
 import React from "react";
 import Popup from "reactjs-popup";
+import Fab from "@mui/material/Fab";
+import ChatIcon from "@mui/icons-material/Chat";
 
 const tahunbaru = "Jan 01 2022";
 const remaining = () => {
@@ -178,12 +180,50 @@ function Wita() {
   );
 }
 
+function useToggle(initialValue = true) {
+  const [value, setValue] = React.useState(initialValue);
+  const toggle = React.useCallback(() => {
+    setValue((v) => !v);
+  }, []);
+  return [value, toggle];
+}
+
+function Chat() {
+  const [isHidden, toggleIsHidden] = useToggle();
+  return (
+    <>
+      <div id="tlkcont" className={isHidden ? "hidden" : null}>
+        <iframe
+          src="https://minnit.chat/tahunbaruan?embed&&nickname="
+          style={{
+            border: "none",
+            width: "100%",
+            height: "100%",
+          }}
+        ></iframe>
+      </div>
+      <div className="fab">
+        <Fab
+          color="primary"
+          aria-label="chat"
+          variant="extended"
+          onClick={toggleIsHidden}
+        >
+          <ChatIcon />
+          <p className="fab-text">Public Chat</p>
+        </Fab>
+      </div>
+    </>
+  );
+}
+
 function App() {
   return (
     <>
       <Countdown />
       <Wit />
       <Wita />
+      <Chat />
     </>
   );
 }

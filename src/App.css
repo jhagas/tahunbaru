@@ -75,6 +75,28 @@ html, body {
   margin: 0 auto;
 }
 
+.hidden {
+  display: none !important;
+}
+
+#tlkcont {
+  position: absolute;
+  width: 350px;
+  height: 550px;
+  right: 10px;
+  bottom: 85px;
+}
+
+.fab {
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+}
+
+.fab-text {
+  margin-left: 10px;
+}
+
 @keyframes blink {
   0% { opacity: 1 }
   20% { opacity: 1 }
