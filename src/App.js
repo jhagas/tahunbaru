@@ -22,85 +22,6 @@ const remaining = () => {
   return timeLeft;
 };
 
-function Countdown() {
-  const [timeLeft, setTimeLeft] = React.useState(true);
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setTimeLeft(remaining());
-    }, 1000);
-    return () => clearTimeout(timer);
-  });
-
-  if (
-    timeLeft.days === 0 &&
-    timeLeft.hours === 0 &&
-    timeLeft.minutes === 0 &&
-    timeLeft.seconds <= 10
-  ) {
-    return (
-      <div className="All">
-        <div
-          className="flex-container"
-          style={{
-            display: "flex",
-            margin: "auto",
-          }}
-        >
-          <h1
-            style={{
-              fontSize: "5em",
-            }}
-          >
-            {timeLeft.seconds}
-          </h1>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <>
-      {timeLeft ? (
-        <div className="All">
-          <h1>TAHUN BARU TINGGAL</h1>
-          <div
-            className="flex-container"
-            style={{
-              display: "flex",
-              margin: "auto",
-            }}
-          >
-            <div className="box days">
-              <h1>{timeLeft.days}</h1>
-              <h3>hari</h3>
-            </div>
-            <span>:</span>
-            <div className="box hours">
-              <h1>{timeLeft.hours}</h1>
-              <h3>jam</h3>
-            </div>
-            <span>:</span>
-            <div className="box minutes">
-              <h1>{timeLeft.minutes}</h1>
-              <h3>menit</h3>
-            </div>
-            <span>:</span>
-            <div className="box seconds">
-              <h1>{timeLeft.seconds}</h1>
-              <h3>detik</h3>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="bg">
-          <h1>TAHUN BARU</h1>
-        </div>
-      )}
-    </>
-  );
-}
-
 function Wit() {
   const [open, setOpen] = React.useState(false);
   const [opened, setOpened] = React.useState(false);
@@ -218,13 +139,97 @@ function Chat() {
   );
 }
 
+function Countdown() {
+  const [timeLeft, setTimeLeft] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(remaining());
+    }, 1000);
+    return () => clearTimeout(timer);
+  });
+
+  if (
+    timeLeft.days === 0 &&
+    timeLeft.hours === 0 &&
+    timeLeft.minutes === 0 &&
+    timeLeft.seconds <= 10
+  ) {
+    return (
+      <div className="All">
+        <div
+          className="flex-container"
+          style={{
+            display: "flex",
+            margin: "auto",
+          }}
+        >
+          <h1
+            style={{
+              fontSize: "5em",
+            }}
+          >
+            {timeLeft.seconds}
+          </h1>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {timeLeft ? (
+        <>
+          <div className="All">
+            <h1>TAHUN BARU TINGGAL</h1>
+            <div
+              className="flex-container"
+              style={{
+                display: "flex",
+                margin: "auto",
+              }}
+            >
+              <div className="box days">
+                <h1>{timeLeft.days}</h1>
+                <h3>hari</h3>
+              </div>
+              <span>:</span>
+              <div className="box hours">
+                <h1>{timeLeft.hours}</h1>
+                <h3>jam</h3>
+              </div>
+              <span>:</span>
+              <div className="box minutes">
+                <h1>{timeLeft.minutes}</h1>
+                <h3>menit</h3>
+              </div>
+              <span>:</span>
+              <div className="box seconds">
+                <h1>{timeLeft.seconds}</h1>
+                <h3>detik</h3>
+              </div>
+            </div>
+          </div>
+          <Wit />
+          <Wita />
+          <Chat />
+        </>
+      ) : (
+        <div className="bg">
+          <h1>TAHUN BARU</h1>
+        </div>
+      )}
+    </>
+  );
+}
+
 function About() {
   return (
     <div className="about">
       <h5>Pasti lu jomblo kan? sama gue juga bwang..</h5>
       <p>
-        Website ini bersifat sumber terbuka dengan lisensi MIT, &copy;
-        2021 Jhagas Hana Winaya
+        Website ini bersifat sumber terbuka dengan lisensi MIT, &copy; 2021
+        Jhagas Hana Winaya
       </p>
       <p>
         Build using react.js and chat provided by Minnit.{" "}
@@ -239,9 +244,6 @@ function App() {
   return (
     <>
       <Countdown />
-      <Wit />
-      <Wita />
-      <Chat />
       <About />
     </>
   );
