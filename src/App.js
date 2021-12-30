@@ -218,6 +218,23 @@ function Chat() {
   );
 }
 
+function About() {
+  return (
+    <div className="about">
+      <h5>Pasti anda jomblo kan? sama gue juga bwang..</h5>
+      <p>
+        Website ini bersifat sumber terbuka dengan lisensi MIT, &copy;
+        2021 Jhagas Hana Winaya
+      </p>
+      <p>
+        Build using react.js and chat provided by Minnit.{" "}
+        <a href="https://github.com/jhagas/tahunbaru">Github Repository</a> for
+        this website
+      </p>
+    </div>
+  );
+}
+
 function App() {
   return (
     <>
@@ -225,6 +242,7 @@ function App() {
       <Wit />
       <Wita />
       <Chat />
+      <About />
     </>
   );
 }

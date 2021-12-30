@@ -97,6 +97,19 @@ html, body {
   margin-left: 10px;
 }
 
+.about {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  color: rgb(143, 143, 143);
+  text-align: center;
+}
+
+.about > p, .about > h5 {
+  font-size: 9px;
+  margin: 0;
+}
+
 @keyframes blink {
   0% { opacity: 1 }
   20% { opacity: 1 }
