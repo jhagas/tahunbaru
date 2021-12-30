@@ -33,9 +33,9 @@ function Countdown() {
   });
 
   if (
-    timeLeft.days == 0 &&
-    timeLeft.hours == 0 &&
-    timeLeft.minutes == 0 &&
+    timeLeft.days === 0 &&
+    timeLeft.hours === 0 &&
+    timeLeft.minutes === 0 &&
     timeLeft.seconds <= 10
   ) {
     return (
@@ -107,11 +107,11 @@ function Wit() {
   const closeModal = () => setOpen(false);
 
   const WIT =
-    new Date(tahunbaru + "UTC+9").getTime() ==
+    new Date(tahunbaru + "UTC+9").getTime() ===
     new Date(Math.floor(+new Date() / 600000) * 600000).getTime();
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      if (WIT == true && opened == false) {
+      if (WIT === true && opened === false) {
         setOpen(true);
         setOpened(true);
       }
@@ -146,11 +146,11 @@ function Wita() {
   const closeModal = () => setOpen(false);
 
   const WIT =
-    new Date(tahunbaru + "UTC+8").getTime() ==
+    new Date(tahunbaru + "UTC+8").getTime() ===
     new Date(Math.floor(+new Date() / 600000) * 600000).getTime();
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      if (WIT == true && opened == false) {
+      if (WIT === true && opened === false) {
         setOpen(true);
         setOpened(true);
       }
@@ -194,6 +194,7 @@ function Chat() {
     <>
       <div id="tlkcont" className={isHidden ? "hidden" : null}>
         <iframe
+          title="Chat"
           src="https://minnit.chat/tahunbaruan?embed&&nickname="
           style={{
             border: "none",
