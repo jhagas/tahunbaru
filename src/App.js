@@ -221,7 +221,7 @@ function Chat() {
 function About() {
   return (
     <div className="about">
-      <h5>Pasti anda jomblo kan? sama gue juga bwang..</h5>
+      <h5>Pasti lu jomblo kan? sama gue juga bwang..</h5>
       <p>
         Website ini bersifat sumber terbuka dengan lisensi MIT, &copy;
         2021 Jhagas Hana Winaya
