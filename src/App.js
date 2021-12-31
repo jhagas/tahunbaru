@@ -3,6 +3,10 @@ import React from "react";
 import Popup from "reactjs-popup";
 import Fab from "@mui/material/Fab";
 import ChatIcon from "@mui/icons-material/Chat";
+import NYpic from "./newyearpic.png";
+import { ISlideConfig, PageSlides, SlideParallaxType } from "react-page-slides";
+import Confetti from "react-confetti";
+import useWindowSize from "react-use/lib/useWindowSize";
 
 const tahunbaru = "Jan 01 2022";
 const remaining = () => {
@@ -19,7 +23,7 @@ const remaining = () => {
     };
   }
 
-  return timeLeft;
+  return false;
 };
 
 function Wit() {
@@ -139,15 +143,60 @@ function Chat() {
   );
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function Tahunbaru () {
+  const { width, height } = useWindowSize();
+  return (
+        <div className="bg">
+          <Confetti
+            width={width}
+            height={height}
+            opacity="0.7"
+            recycle={false}
+            numberOfPieces="500"
+            tweenDuration="7000"
+          />
+          <div className="NYpic">
+            <img
+              width="100%"
+              src={NYpic}
+              alt="Girl with baloon and 2022 numbers floating around indicating hope for this year"
+            ></img>
+          </div>
+          <div className="selamat">
+            <h2>SELAMAT TAHUN BARU 2022!!</h2>
+          </div>
+        </div>
+  )
+
+}
+
 function Countdown() {
   const [timeLeft, setTimeLeft] = React.useState(true);
+  const [isLoading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setTimeLeft(remaining());
     }, 1000);
+    const loading = async function loading() {
+      await sleep(2000);
+      setLoading(false);
+    };
+    loading();
     return () => clearTimeout(timer);
   });
+
+  if (isLoading) {
+    return (
+      <div className="All">
+        <h1>Application Loading...</h1>
+      </div>
+    );
+  }
 
   if (
     timeLeft.days === 0 &&
@@ -212,12 +261,9 @@ function Countdown() {
           </div>
           <Wit />
           <Wita />
-          <Chat />
         </>
       ) : (
-        <div className="bg">
-          <h1>TAHUN BARU</h1>
-        </div>
+        <Tahunbaru />
       )}
     </>
   );
@@ -228,13 +274,9 @@ function About() {
     <div className="about">
       <h5>Pasti lu jomblo kan? sama gue juga bwang..</h5>
       <p>
-        Website ini bersifat sumber terbuka dengan lisensi MIT, &copy; 2021
-        Jhagas Hana Winaya
-      </p>
-      <p>
-        Build using react.js and chat provided by Minnit.{" "}
-        <a href="https://github.com/jhagas/tahunbaru">Github Repository</a> for
-        this website
+        This site is open-source (MIT License), head over to{" "}
+        <a href="https://github.com/jhagas/tahunbaru">Git Repo</a> to learn
+        more.
       </p>
     </div>
   );
@@ -244,6 +286,7 @@ function App() {
   return (
     <>
       <Countdown />
+      <Chat />
       <About />
     </>
   );

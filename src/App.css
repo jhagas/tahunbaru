@@ -46,9 +46,12 @@ html, body {
 }
 
 .bg {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   inset: 0;
-  background-image : url("https://unsplash.com/photos/cP_CZA8KCqc/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQwNzk4MTA4&force=true&w=1920");
+  justify-content: center;
+  align-items: center;
 }
 
 .modal {
@@ -109,6 +112,21 @@ html, body {
   font-size: 9px;
   margin: 0;
 }
+
+.NYpic {
+  max-width: 450px;
+  padding: 0 30px;
+}
+
+.selamat {
+  position: relative;
+}
+
+.selamat > h2 {
+  margin: 0;
+  text-align: center;
+}
+
 
 @keyframes blink {
   0% { opacity: 1 }
