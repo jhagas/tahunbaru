@@ -3,9 +3,15 @@ import React from "react";
 import Popup from "reactjs-popup";
 import Fab from "@mui/material/Fab";
 import ChatIcon from "@mui/icons-material/Chat";
-import NYpic from "./newyearpic.png";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
+import { FullPage, Slide } from "react-full-page";
+import NYpic from "./newyearpic.png";
+import SocDis from "./socdis.png";
+import Sad from "./sad.png";
+import Discipline from "./health.png";
+import Holiday from "./holiday.png";
+import Me from "./creator.jpg";
 
 const tahunbaru = "Jan 01 2022";
 const remaining = () => {
@@ -146,31 +152,236 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function Tahunbaru () {
+function Ucapan() {
   const { width, height } = useWindowSize();
   return (
-        <div className="bg">
-          <Confetti
-            width={width}
-            height={height}
-            opacity="0.7"
-            recycle={false}
-            numberOfPieces="500"
-            tweenDuration="7000"
-          />
-          <div className="NYpic">
-            <img
-              width="100%"
-              src={NYpic}
-              alt="Girl with baloon and 2022 numbers floating around indicating hope for this year"
-            ></img>
-          </div>
-          <div className="selamat">
-            <h2>SELAMAT TAHUN BARU 2022!!</h2>
-          </div>
-        </div>
-  )
+    <div
+      style={{
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        position: "absolute",
+        inset: 0,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Confetti
+        width={width}
+        height={height}
+        opacity="0.7"
+        recycle={false}
+        numberOfPieces="500"
+        tweenDuration="7000"
+      />
+      <div className="NYpic">
+        <img
+          width="100%"
+          src={NYpic}
+          alt="Girl with baloon and 2022 numbers floating around indicating hope for this year"
+        ></img>
+      </div>
+      <div className="selamat">
+        <h2>SELAMAT TAHUN BARU 2022!!</h2>
+        <p className="more">scroll for more..</p>
+      </div>
+    </div>
+  );
+}
 
+function Katakata1() {
+  return (
+    <div
+      style={{
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        height: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div className="NYpic">
+        <img
+          width="100%"
+          src={SocDis}
+          alt="People walking around with masker, social distancing"
+        ></img>
+      </div>
+      <div className="selamat">
+        <h2>Tahun lalu adalah tahun yang berat</h2>
+        <p>
+          Namun bersama kita dapat melewati pandemi ini dan mulai lagi tata
+          kehidupan yang baru dengan tetap bahu membahu membangun Indonesia
+          menjadi lebih maju sekecil apapun usaha yang bisa kita berikan untuk
+          bangsa ini.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Katakata2() {
+  return (
+    <div
+      style={{
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        height: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div className="NYpic">
+        <img width="100%" src={Sad} alt="woman with sad face"></img>
+      </div>
+      <div className="selamat">
+        <h2>Jangan larut dalam masalah</h2>
+        <p>
+          Setiap orang pasti suatu masalah yang harus diselesaikan. Mengamati
+          dan belajar hal baru dari sekeliling kita dapat membantu kita dalam
+          menyelesaikan masalah kita saat ini ataupun masalah yang akan datang.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Katakata3() {
+  return (
+    <div
+      style={{
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        height: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div className="NYpic">
+        <img width="100%" src={Discipline} alt="man do pushups"></img>
+      </div>
+      <div className="selamat">
+        <h2>Lakukan kebiasaan baik mulai sekarang</h2>
+        <p>
+          Coba mulai lakukan hal yang positif minimal untuk diri sendiri.
+          Sekecil apapun kebiasaan positif yang kita lakukan, pasti akan
+          memiliki efek yang besar untuk masa depan kita.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Katakata4() {
+  return (
+    <div
+      style={{
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        height: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div className="NYpic">
+        <img width="100%" src={Holiday} alt="man do pushups"></img>
+      </div>
+      <div className="selamat">
+        <h2>Beri ruang rehat untuk introspeksi</h2>
+        <p>
+          Rencana, lakukan, evaluasi. Siklus inilah yang dilakukan setiap orang
+          hebat agar berkembang. Jangan sampai kita salah langkah namun tetap
+          merasa aman karena kita tidak pernah mengevaluasi diri kita.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Katakata5() {
+  return (
+    <>
+      <div
+        style={{
+          overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+          height: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div className="NYpic">
+          <img
+            className="creator"
+            width="100%"
+            src={Me}
+            alt="Creator of this site, Jhagas"
+          ></img>
+        </div>
+        <div className="selamat">
+          <h3>
+            "Jadikan diri tak pernah puas jelajahi samudra ilmu yang luas"
+          </h3>
+          <p>Jhagas Hana Winaya, Mahasiswa Fisika ITS 2020</p>
+        </div>
+      </div>
+      <div className="about sticky">
+        <p>
+          This site is open-source (MIT License), head over to{" "}
+          <a href="https://github.com/jhagas/tahunbaru">Git Repo</a> to learn
+          more.
+        </p>
+      </div>
+    </>
+  );
+}
+
+function Tahunbaru() {
+  return (
+    <FullPage>
+      <Slide>
+        <Ucapan />
+      </Slide>
+      <Slide>
+        <Katakata1 />
+      </Slide>
+      <Slide>
+        <Katakata2 />
+      </Slide>
+      <Slide>
+        <Katakata3 />
+      </Slide>
+      <Slide>
+        <Katakata4 />
+      </Slide>
+      <Slide>
+        <Katakata5 />
+      </Slide>
+    </FullPage>
+  );
+}
+
+function About() {
+  return (
+    <div className="about">
+      <h5>Pasti lu jomblo kan? sama gue juga bwang..</h5>
+      <p>
+        This site is open-source (MIT License), head over to{" "}
+        <a href="https://github.com/jhagas/tahunbaru">Git Repo</a> to learn
+        more.
+      </p>
+    </div>
+  );
 }
 
 function Countdown() {
@@ -260,6 +471,8 @@ function Countdown() {
           </div>
           <Wit />
           <Wita />
+          <Chat />
+          <About />
         </>
       ) : (
         <Tahunbaru />
@@ -268,25 +481,11 @@ function Countdown() {
   );
 }
 
-function About() {
-  return (
-    <div className="about">
-      <h5>Pasti lu jomblo kan? sama gue juga bwang..</h5>
-      <p>
-        This site is open-source (MIT License), head over to{" "}
-        <a href="https://github.com/jhagas/tahunbaru">Git Repo</a> to learn
-        more.
-      </p>
-    </div>
-  );
-}
 
 function App() {
   return (
     <>
       <Countdown />
-      <Chat />
-      <About />
     </>
   );
 }

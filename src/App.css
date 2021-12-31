@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;1,800&display=swap");
 
-html, body {
+html,
+body {
   margin: 0;
-  font-family: 'Nunito', 'Helvetica', 'Arial', sans-serif;
-
+  font-family: "Nunito", "Helvetica", "Arial", sans-serif;
 }
 
 .All {
@@ -23,7 +23,7 @@ html, body {
   .All > h1 {
     font-size: 1.5em;
   }
-} 
+}
 
 .box {
   text-align: center;
@@ -43,15 +43,6 @@ html, body {
 .flex-container > span {
   margin-top: 1em;
   animation: blink 1s infinite linear;
-}
-
-.bg {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  inset: 0;
-  justify-content: center;
-  align-items: center;
 }
 
 .modal {
@@ -108,7 +99,12 @@ html, body {
   text-align: center;
 }
 
-.about > p, .about > h5 {
+.sticky {
+  position: sticky !important;
+}
+
+.about > p,
+.about > h5 {
   font-size: 9px;
   margin: 0;
 }
@@ -122,17 +118,53 @@ html, body {
   position: relative;
 }
 
-.selamat > h2 {
+.selamat > h2,
+.selamat > p {
   margin: 0;
+  text-align: center;
+  max-width: 500px;
+}
+
+.selamat > h3 {
+  max-width: 450px;
+  margin: 20px 0 10px 0;
+  font-size: 1.5em;
   text-align: center;
 }
 
+.more {
+  font-size: 10pt;
+  color: rgb(129, 129, 129);
+}
+
+@media screen and (max-width: 500px) {
+  .selamat > h2 {
+    font-size: 1em;
+  }
+}
+
+.creator {
+  max-width: 270px;
+  border-radius: 50%;
+}
 
 @keyframes blink {
-  0% { opacity: 1 }
-  20% { opacity: 1 }
-  40% { opacity: 1 }
-  60% { opacity: 0 }
-  80% { opacity: 0 }
-  100% { opacity: 0 }
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
