@@ -4,7 +4,6 @@ import Popup from "reactjs-popup";
 import Fab from "@mui/material/Fab";
 import ChatIcon from "@mui/icons-material/Chat";
 import NYpic from "./newyearpic.png";
-import { ISlideConfig, PageSlides, SlideParallaxType } from "react-page-slides";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 
@@ -23,7 +22,7 @@ const remaining = () => {
     };
   }
 
-  return false;
+  return timeLeft;
 };
 
 function Wit() {
