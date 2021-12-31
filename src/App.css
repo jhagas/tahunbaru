@@ -48,7 +48,7 @@ body {
 .modal {
   font-size: 12px;
   background-color: whitesmoke;
-  width: 450px;
+  max-width: 450px;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 4px 4px 3px #00000030;
